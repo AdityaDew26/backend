@@ -4,28 +4,11 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 import UserRoutes from "./Routes/userRoutes.js"
 import projectRoutes from "./Routes/projectRoute.js"
-import { fileURLToPath } from "url";
 
 dotenv.config()
 
 const app = express()
 
-const express = require("express");
-const path = require("path");
-
-// Resolve __dirname in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-
-app.use(express.static(path.join(__dirname, "build")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
-});
-
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
 
 const allowedOrigins = ['http://localhost:3000', 'http://localhost:5173'];
 
